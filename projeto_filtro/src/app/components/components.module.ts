@@ -5,6 +5,7 @@ import { AngularMaterialModule } from "../angular-material/angular-materia.modul
 
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { FilterComponent } from './filter/filter.component';
+import { CommonModule } from "@angular/common";
 
 
 
@@ -18,6 +19,7 @@ import { FilterComponent } from './filter/filter.component';
         imports: [
             AngularMaterialModule,
             FormsModule,
+            CommonModule,
 
         ],
         exports: [
