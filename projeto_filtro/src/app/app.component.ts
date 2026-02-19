@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IUser } from './interfaces/user/user.interface';
-import { UserList } from './data/users-list';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +8,14 @@ import { UserList } from './data/users-list';
 })
 export class AppComponent {
 
-  userSelected: IUser = UserList[0];
+  userSelected: IUser = {} as IUser;
+  //Casting, força a aceitar o objeto vazio
+
+  showUserDetails: boolean = false;
+
+
+  onUserSelected(user: IUser) {
+    this.userSelected = user;
+    this.showUserDetails = true;
+  }
 }
