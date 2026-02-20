@@ -1,10 +1,10 @@
 <div class="filter">
 
-    <form class="form">
+    <div class="form">
         <div class="form__name">
             <mat-form-field class="example-full-width">
                 <mat-label>Nome: </mat-label>
-                <input type="text" placeholder="Nome:" matInput value="Fulana">
+                <input type="text" placeholder="Nome:" matInput value="Fulana" name="name" [(ngModel)]="filterOptions.name">
             </mat-form-field>
         </div>
 
@@ -12,8 +12,8 @@
             <mat-form-field>
                 <mat-label>Data de cadastro:</mat-label>
                 <mat-date-range-input [rangePicker]="picker">
-                    <input matStartDate placeholder="Start date">
-                    <input matEndDate placeholder="End date">
+                    <input matStartDate placeholder="Start date" [(ngModel)]="filterOptions.startDate" (ngModelChange)="dateSelected($event)" >
+                    <input matEndDate placeholder="End date" [(ngModel)]="filterOptions.endDate" (ngModelChange)="dateSelected($event)">
                 </mat-date-range-input>
                 <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
@@ -24,17 +24,17 @@
         <div class="form__status">
             <mat-form-field>
                 <mat-label>Status:</mat-label>
-                <mat-select>
-                    <mat-option *ngFor=" let food of foods" [value] ="food.value">{{food.viewValue}}
+                <mat-select [(ngModel)]="filterOptions.status">
+                    <mat-option *ngFor=" let status of statusList" [value] ="status.value">{{status.description}}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
 
         <div class="form__button">
-            <button matButton="elevated">Filtrar</button>
+            <button matButton="elevated" (click)="onFilter()">Filtrar</button>
         </div>
 
-    </form>
+    </div>
 
 </div>
