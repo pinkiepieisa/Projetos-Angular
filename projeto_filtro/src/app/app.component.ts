@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IUser } from './interfaces/user/user.interface';
 import { UserList } from './data/users-list';
+import { IFilterOptions } from './interfaces/filter-options.Interface';
 
 @Component({
   selector: 'app-root',
@@ -31,4 +32,8 @@ export class AppComponent implements OnInit {
   }
   //Simulação de chamada http 
   //A lista antes vazia recebe a lista dos usuários após 3 segundos de carregamento
+
+  onFilter(filterOptions: IFilterOptions) {
+    console.log(filterOptions);
+  }
 }

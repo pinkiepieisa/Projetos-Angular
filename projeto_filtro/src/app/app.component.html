@@ -4,7 +4,7 @@
         <!-- div da esquerda -->
         <div class="top-div">
             <!-- div superior -->
-            <app-filter></app-filter>
+            <app-filter (onFilter)="onFilter($event)"></app-filter>
         </div>
 
         <div class="main-left-div">
