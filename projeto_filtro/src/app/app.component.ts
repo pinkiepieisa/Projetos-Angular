@@ -52,12 +52,14 @@ export class AppComponent implements OnInit {
 
     filteredList = this.filterUsersListByName(filterOptions.name, usersList);
 
+    filteredList = this.filterUsersListByStatus(filterOptions.status, filteredList);
+
     return filteredList;
 
   }
 
   filterUsersListByName(name: string | undefined, usersList: IUser[]): IUser[] {
-    const NAME_NOT_TYPPED = name ===undefined;
+    const NAME_NOT_TYPPED = name === undefined;
     //Caso não tenha nada no campo name
     
     if(NAME_NOT_TYPPED) {
@@ -71,5 +73,21 @@ export class AppComponent implements OnInit {
     return filteredList;
     //Retorna a lista filtrada
   }
+
+  filterUsersListByStatus(status: boolean | undefined, usersList: IUser[]): IUser[] {
+    const STATUS_NOT_SELECTED = status === undefined;
+
+    if(STATUS_NOT_SELECTED) {
+      return usersList;
+      //Retorna a lista original
+    }
+
+    const filteredList = usersList.filter((user) => user.ativo === status);
+    //Se o status de alguém da lista é igual ao selecionado no filtro
+
+    return filteredList;
+
+  }
+
 
 }
