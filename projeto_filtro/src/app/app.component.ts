@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IUser } from './interfaces/user/user.interface';
 import { UserList } from './data/users-list';
 import { IFilterOptions } from './interfaces/filter-options.Interface';
+import { isWithinInterval } from 'date-fns';
 
 @Component({
   selector: 'app-root',
@@ -54,6 +55,8 @@ export class AppComponent implements OnInit {
 
     filteredList = this.filterUsersListByStatus(filterOptions.status, filteredList);
 
+    filteredList = this.filterUsersListByDate(filterOptions.startDate, filterOptions.endDate, filteredList)
+
     return filteredList;
 
   }
@@ -87,6 +90,25 @@ export class AppComponent implements OnInit {
 
     return filteredList;
 
+  }
+
+    filterUsersListByDate(startDate: Date | undefined, endDate: Date | undefined, usersList: IUser[]): IUser[] {
+      const DATE_NOT_SELECTED = startDate === undefined || endDate === undefined;
+
+      if(DATE_NOT_SELECTED) {
+        return usersList;
+      }
+
+      const listFiltered = usersList.filter((user) => isWithinInterval(new Date(user.dataCadastro), {
+        start: startDate,
+        end: endDate,
+      }));
+
+      //Uma constante ue recebe a lista filtrada que usa como parametro o usuário
+      //usa a função da biblioteca importada que usa como parametro a data de usuário, porém como ela é uma string, está sendo convertida no formato Date
+      //Usa como parametros uma data de início e uma de final, que já estão no formato data e são recolhidas no javascript
+
+      return listFiltered;
   }
 
 
