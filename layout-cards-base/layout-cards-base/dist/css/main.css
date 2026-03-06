@@ -17,3 +17,29 @@ body {
   .container .item {
     width: 50%;
     padding: 10px; }
+  .container h1 {
+    background-color: #d17a52; }
+  .container .card-clue {
+    background-color: aqua; }
+
+.balance-card {
+  background-color: white;
+  padding: 20px;
+  font-size: 15px; }
+  .balance-card .card-gray {
+    background-color: lightgray; }
+
+.credit-card {
+  background-color: white;
+  padding: 20px;
+  font-size: 15px; }
+
+.debit-card {
+  background-color: white;
+  padding: 20px;
+  font-size: 15px; }
+
+.client-infos-card {
+  background-color: white;
+  padding: 20px;
+  font-size: 15px; }
