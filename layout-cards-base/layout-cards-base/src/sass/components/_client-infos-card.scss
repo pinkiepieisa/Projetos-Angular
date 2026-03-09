@@ -2,5 +2,15 @@
     background-color: white;
     padding: 20px;
     font-size: 15px;
-        
+
+    display: flex;
+    flex-wrap: wrap;
+    
+    p {
+        width: 50%;
+    }
+
+    hr {
+        width: 100%;
+    }
 }
