@@ -17,16 +17,14 @@ body {
   .container .item {
     width: 50%;
     padding: 10px; }
-  .container .card-clue {
-    background-color: aqua; }
 
 .balance-card {
   border: none;
   overflow: hidden;
-  border-radius: 5px; }
+  border-radius: 5px;
+  background-color: white; }
   .balance-card__header {
     background-color: #d4784e;
-    font-size: 15px;
     padding: 15px;
     display: flex;
     align-items: center; }
@@ -62,28 +60,33 @@ body {
     padding: 0px 12px; }
 
 .credit-card {
-  background-color: white;
-  padding: 20px;
-  font-size: 15px;
-  display: flex;
-  flex-wrap: wrap; }
-  .credit-card p {
-    width: 50%; }
-  .credit-card hr {
-    width: 100%; }
-
-.debit-card {
-  background-color: white;
-  padding: 20px;
-  font-size: 15px; }
-
-.client-infos-card {
-  background-color: white;
-  padding: 20px;
-  font-size: 15px;
-  display: flex;
-  flex-wrap: wrap; }
-  .client-infos-card p {
-    width: 50%; }
-  .client-infos-card hr {
-    width: 100%; }
+  border: none;
+  overflow: hidden;
+  border-radius: 5px;
+  background-color: white; }
+  .credit-card__header {
+    background-color: #d4784e;
+    padding: 15px; }
+    .credit-card__header-title {
+      display: flex;
+      align-items: center;
+      margin-right: auto; }
+      .credit-card__header-title h1 {
+        font-size: 20px; }
+    .credit-card__header-icon {
+      height: 30px;
+      margin-right: 10px; }
+  .credit-card__content {
+    overflow: hidden;
+    padding: 15px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: white; }
+    .credit-card__content-item {
+      display: flex;
+      align-items: center;
+      padding: 20px; }
+      .credit-card__content-item p:nth-of-type(1) {
+        margin-right: auto; }
+    .credit-card__content-line {
+      border: 0.5px solid #9e9e9e; }
