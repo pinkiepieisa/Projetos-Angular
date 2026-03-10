@@ -1,0 +1,65 @@
+.balance-card {
+    border: none;
+    overflow: hidden;
+    border-radius: 5px;
+    background-color: white;
+
+    &__header {
+        background-color: rgb(212, 120, 78);
+        padding: 15px;
+        display: flex;
+        align-items: center;
+
+        p {
+            font-size: 20px;
+        }
+
+        &-title {
+            display: flex;
+            align-items: center;
+            margin-right: auto;
+
+            h1 {
+                font-size: 20px;
+            }
+        }
+
+        &-icon {
+            height: 30px;
+            margin-right: 10px;
+        }
+
+    }
+
+    &__content {
+        overflow: hidden;
+        padding: 15px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        background-color: white;
+
+        &-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+
+            p:nth-of-type(1) {
+                // Acessa o primeiro parágrafo
+                margin-right: auto;
+            }
+        }
+    }
+
+    &__content-line {
+        border: 0.5px solid #9e9e9e;
+    }
+
+    &__content-gray {
+        margin-top: 30px;
+        background-color: #e2e2e2de;  
+        border-radius: 5px;
+        padding: 0px 12px;
+
+    }
+
+}
