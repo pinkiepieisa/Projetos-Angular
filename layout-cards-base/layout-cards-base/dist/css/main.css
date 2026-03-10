@@ -98,10 +98,11 @@ body {
   background-color: white; }
   .debit-card__header {
     background-color: #d4784e;
-    padding: 15px;
-    display: flex;
-    align-items: center;
-    margin-right: auto; }
+    padding: 15px; }
+    .debit-card__header-title {
+      display: flex;
+      align-items: center;
+      margin-right: auto; }
     .debit-card__header h1 {
       font-size: 20px; }
     .debit-card__header-icon {
@@ -113,3 +114,9 @@ body {
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     background-color: white; }
+    .debit-card__content-item {
+      display: flex;
+      align-items: center;
+      padding: 20px; }
+      .debit-card__content-item p:nth-of-type(1) {
+        margin-right: auto; }

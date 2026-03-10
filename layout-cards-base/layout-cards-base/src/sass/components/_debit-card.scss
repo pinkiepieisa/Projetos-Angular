@@ -7,9 +7,12 @@
     &__header {
         background-color: rgb(212, 120, 78);
         padding: 15px;
-        display: flex;
-        align-items: center;
-        margin-right: auto;
+        
+        &-title {
+            display: flex;
+            align-items: center;
+            margin-right: auto;
+        }
 
         h1 {
             font-size: 20px;
@@ -28,6 +31,18 @@
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
         background-color: white;
+
+        
+        &-item{
+            display: flex;
+            align-items: center;
+            padding: 20px;
+
+            p:nth-of-type(1) {
+                // Acessa o primeiro parágrafo
+                margin-right: auto;
+            }
+        }
     }
 
 }
