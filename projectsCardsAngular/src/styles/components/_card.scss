@@ -8,6 +8,10 @@
     &__header {
         background-color: rgb(212, 120, 78);
         padding: 15px;
+
+        &--bg-blue {
+            background-color: aqua;
+        }
     }
 
     &__content {
