@@ -7,6 +7,11 @@ import { CreditCardComponent } from './components/credit-card/credit-card.compon
 import { DebitCardComponent } from './components/debit-card/debit-card.component';
 import { CustomerInformationComponent } from './components/customer-information/customer-information.component';
 import { ComponentGeralComponent } from './components/component-geral/component-geral.component';
+import { LineComponent } from './components/components/line/line.component';
+import { ItemComponent } from './components/components/item/item.component';
+import { TitleComponent } from './components/components/title/title.component';
+import { ImageComponent } from './components/components/image/image.component';
+import { HeaderComponent } from './components/components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +20,12 @@ import { ComponentGeralComponent } from './components/component-geral/component-
     CreditCardComponent,
     DebitCardComponent,
     CustomerInformationComponent,
-    ComponentGeralComponent
+    ComponentGeralComponent,
+    LineComponent,
+    ItemComponent,
+    TitleComponent,
+    ImageComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule
