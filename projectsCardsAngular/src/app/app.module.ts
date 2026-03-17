@@ -14,6 +14,7 @@ import { ImageComponent } from './components/components/image/image.component';
 import { HeaderComponent } from './components/components/header/header.component';
 import { CardItemComponent } from './components/card-item/card-item.component';
 import { CardLineComponent } from './components/card-line/card-line.component';
+import { CardTitleComponent } from './components/card-title/card-title.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { CardLineComponent } from './components/card-line/card-line.component';
     ImageComponent,
     HeaderComponent,
     CardItemComponent,
-    CardLineComponent
+    CardLineComponent,
+    CardTitleComponent
   ],
   imports: [
     BrowserModule
