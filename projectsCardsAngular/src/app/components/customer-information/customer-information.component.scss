@@ -17,14 +17,4 @@
         margin-right: 10px;
     }
 
-    &__content-item {
-    display: flex;
-    align-items: center;
-    padding: 20px;
-
-        p:nth-of-type(1) {
-            // Acessa o primeiro parágrafo
-            margin-right: auto;
-        }
-    }
 }

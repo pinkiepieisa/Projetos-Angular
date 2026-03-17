@@ -12,6 +12,8 @@ import { ItemComponent } from './components/components/item/item.component';
 import { TitleComponent } from './components/components/title/title.component';
 import { ImageComponent } from './components/components/image/image.component';
 import { HeaderComponent } from './components/components/header/header.component';
+import { CardItemComponent } from './components/card-item/card-item.component';
+import { CardLineComponent } from './components/card-line/card-line.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { HeaderComponent } from './components/components/header/header.component
     ItemComponent,
     TitleComponent,
     ImageComponent,
-    HeaderComponent
+    HeaderComponent,
+    CardItemComponent,
+    CardLineComponent
   ],
   imports: [
     BrowserModule
