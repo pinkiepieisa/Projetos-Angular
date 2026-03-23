@@ -1,0 +1,17 @@
+.ca-c-card {
+    max-width: 400px;
+
+    &__header {
+        padding: 50px;
+        height: 40%;
+        background-color: coral;
+        display: block;
+    }
+
+    &__content {
+        padding: 50px;
+        height: 60%;
+        background-color: chocolate;
+        display: block;
+    }
+}
