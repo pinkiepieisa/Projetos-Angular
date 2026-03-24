@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Love+Ya+Like+A+Sister&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    font-family: "Love Ya Like A Sister", cursive;
+    background-color: beige;
+}
+
+@import "./styles/components/card";
