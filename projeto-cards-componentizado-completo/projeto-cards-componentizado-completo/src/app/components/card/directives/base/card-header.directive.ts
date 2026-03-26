@@ -7,7 +7,9 @@ import { Directive, HostBinding, Input } from '@angular/core';
 })
 
 export class CardHeaderDirective {
-  @Input()
-  @HostBinding('class') color: string = '';
-  //Para utilizar a classe a fim de alterar a cor do header
+  // @Input()
+  // @HostBinding('class') color: string = '';
+  // //Para utilizar a classe a fim de alterar a cor do header
+
+  
 }

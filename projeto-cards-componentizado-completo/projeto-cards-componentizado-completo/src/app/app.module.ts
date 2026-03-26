@@ -10,8 +10,9 @@ import { CardItemComponent } from './components/card-item/card-item.component';
 import { CardLineComponent } from './components/card-line/card-line.component';
 import { CardTitleComponent } from './components/card-title/card-title.component';
 import { CardComponent } from './components/card/card.component';
-import { CardHeaderDirective } from './components/card/directives/card-header.directive';
-import { CardContentDirective } from './components/card/directives/card-content.directive';
+import { CardHeaderDirective } from './components/card/directives/base/card-header.directive';
+import { CardContentDirective } from './components/card/directives/base/card-content.directive';
+import { CardTitleTextDirective } from './components/card/directives/text/card-title-text.directive';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CardContentDirective } from './components/card/directives/card-content.
     CardTitleComponent,
     CardComponent,
     CardHeaderDirective,
-    CardContentDirective
+    CardContentDirective,
+    CardTitleTextDirective
   ],
   imports: [
     BrowserModule

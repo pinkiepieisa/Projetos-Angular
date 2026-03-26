@@ -1,7 +1,19 @@
 <app-card>
-    <app-card-header color=" ca-c-card__header--bg-blue">
+    <!-- Primeira solução para alterar a cor do header -->
+    <!-- <app-card-header color=" ca-c-card__header--bg-blue">
+        <app-card-title title="Informações do Cliente" icon="icon-client.png"></app-card-title>
+    </app-card-header> -->
+
+    <!-- <app-card-header color="blue">
         <app-card-title title="Informações do Cliente" icon="icon-client.png"></app-card-title>
     </app-card-header>
+    Segunda solução -->
+
+    <app-card-header [attr.color]="headerColor">
+        <app-card-title title="Informações do Cliente" icon="icon-client.png"></app-card-title>
+    </app-card-header>
+    <!-- Terceira solução dinâmica -->
+
     <app-card-content>
         <app-card-item text="Nome" value="Felipe da Silva Freitas"></app-card-item>
 
