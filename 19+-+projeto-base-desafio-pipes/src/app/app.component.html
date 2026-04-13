@@ -1,0 +1,44 @@
+<div class="operations">
+    <div class="operations__filter">
+        <input class="operations__filter-input" type="text" placeholder="Filtrar por Nome">
+    </div>
+    <div class="operations__table">
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th class="operations__table-cell operations__table-cell--white">Nome</th>
+                    <th class="operations__table-cell operations__table-cell--white">Status Cliente</th>
+                    <th class="operations__table-cell operations__table-cell--white">Data Operação</th>
+                    <th class="operations__table-cell operations__table-cell--white">Hora Operação</th>
+                    <th class="operations__table-cell operations__table-cell--white">Valor Operação</th>
+                    <th class="operations__table-cell operations__table-cell--white">Risco Operação</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <tr>
+
+                    <ng-container *ngFor="let user of ">
+                        <td class="operations__table-cell"> {{ user. }} </td>
+                        <td class="operations__table-cell">
+                            <p class="operations__status">
+                                {{ }}
+                                <img src="assets/icons/active-icon.png" class="operations__icon" width="20"
+                                    height="20" />
+                            </p>
+                        </td>
+                        <td class="operations__table-cell"> {{ }} </td>
+                        <td class="operations__table-cell"> {{ }} </td>
+                        <td class="operations__table-cell"> {{ }} </td>
+                        <td class="operations__table-cell"> {{ }} </td>
+                    </ng-container>
+
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>
