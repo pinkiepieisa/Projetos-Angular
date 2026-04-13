@@ -1,4 +1,4 @@
-export interface IUserResponse {
+export interface IOperationResponse {
   customerName: string
   customerStatus: number
   operationDate: string
