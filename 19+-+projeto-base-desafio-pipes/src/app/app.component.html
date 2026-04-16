@@ -1,6 +1,6 @@
 <div class="operations">
     <div class="operations__filter">
-        <input class="operations__filter-input" type="text" placeholder="Filtrar por Nome">
+        <input class="operations__filter-input" type="text" placeholder="Filtrar por Nome" [(ngModel)]='searchItem'>
     </div>
     <div class="operations__table">
 
@@ -18,24 +18,19 @@
             </thead>
 
             <tbody>
-
-                <tr>
-
-                    <ng-container *ngFor="">
-                        <td class="operations__table-cell"> {{ }} </td>
-                        <td class="operations__table-cell">
-                            <p class="operations__status">
-                                {{ }}
-                                <img src="assets/icons/active-icon.png" class="operations__icon" width="20"
-                                    height="20" />
-                            </p>
-                        </td>
-                        <td class="operations__table-cell"> {{ }} </td>
-                        <td class="operations__table-cell"> {{ }} </td>
-                        <td class="operations__table-cell"> {{ }} </td>
-                        <td class="operations__table-cell"> {{ }} </td>
-                    </ng-container>
-
+                <tr *ngFor="let operation of operationsList | filter : 'customerName' : searchItem ">
+                    <td class="operations__table-cell"> {{ operation.customerName }} </td>
+                    <td class="operations__table-cell">
+                        <p class="operations__status">
+                                {{ operation.customerStatus | status }}
+                               
+                            <img [src]="operation.customerStatus | statusIcon" class="operations__icon" width="20"height="20" />
+                        </p>
+                    </td>
+                    <td class="operations__table-cell"> {{ operation.operationDate | date: 'shortDate'}} </td>
+                    <td class="operations__table-cell"> {{ operation.operationDate | date: 'HH:mm a'  }} </td>
+                    <td class="operations__table-cell"> {{ operation.operationValue | currency}} </td>
+                    <td class="operations__table-cell"> {{ operation.operationRisck | percent: '1.0-2' }} </td>
                 </tr>
             </tbody>
 

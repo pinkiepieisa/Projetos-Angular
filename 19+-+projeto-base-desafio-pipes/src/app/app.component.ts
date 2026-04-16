@@ -12,6 +12,8 @@ export class AppComponent implements OnInit {
 
   operationsList: OperationsListResponse = [];
 
+  searchItem: string = '';
+
   constructor(
     private readonly _operationsService: OperationsService
   ) {}
