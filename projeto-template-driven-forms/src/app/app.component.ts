@@ -1,10 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { UsersService } from './services/users.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'projeto-template-driven-forms';
+export class AppComponent implements OnInit {
+  usersList: any = [];
+  constructor(
+    private readonly _usersService: UsersService
+  ) {}
+
+  ngOnInit(){
+    this.getUsers();
+  }
+
+  getUsers() {
+    this._usersService.getUsers().subscribe((usersListResponse) => {
+      this.usersList = usersListResponse;
+    });
+  }
 }
