@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { observeNotification } from "rxjs/internal/Notification";
 
 @Injectable({
     providedIn: 'root'
