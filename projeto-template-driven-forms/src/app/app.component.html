@@ -1,5 +1,6 @@
-<app-users-card-list
-    [usersList]="usersList"
-    (onUserSelected)="onUserSelected($event)"
-></app-users-card-list>
-<!-- Passando os valores da lista por Input -->
+<div style="margin-bottom: 20px;">
+    <app-users-card-list [usersList]="usersList" (onUserSelected)="onUserSelected($event)"></app-users-card-list>
+    <!-- Passando os valores da lista por Input -->
+</div>
+
+<app-user-form></app-user-form>
