@@ -5,6 +5,7 @@ import { BrazilianStatesService } from './services/brazilian-states.service';
 import { UsersListResponse } from './types/users-list-response';
 import { GenresListTesponse } from './types/genres-list-response';
 import { StatesListResponse } from './types/brazilian-states-list-response';
+import { IUser } from './interfaces/user/user.interface';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,11 @@ import { StatesListResponse } from './types/brazilian-states-list-response';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  userSelected: IUser = {} as IUser;
+  // Guarda a cópia do objeto usuário original
+  userSelectedIndex: number | undefined;
+  // Guarda o index do usuário
+
   usersList: UsersListResponse = [];
   genresList: GenresListTesponse = [];
   statesList: StatesListResponse = [];
@@ -20,12 +26,27 @@ export class AppComponent implements OnInit {
     private readonly _usersService: UsersService,
     private readonly _genresService: GenresService,
     private readonly _brazilianStatesService: BrazilianStatesService
-  ) {}
+  ) { }
 
-  ngOnInit(){
+  ngOnInit() {
     this.getUsers();
     this.getGenres();
     this.getStates();
+  }
+
+  onUserSelected(userIndex: number) {
+    const userFound = this.usersList[userIndex];
+    // Confere se tem um idex selecionado
+
+    if(userFound) {
+      this.userSelectedIndex = userIndex;
+      this.userSelected = structuredClone(userFound);
+      // Valorizando as propriedades
+
+      // Se tiver um index, então ele guarda cópias dos elementos
+      // Lembrando que isso tudo ocorre em um evento de click (seleção de usuário)
+    }
+
   }
 
   private getStates() {
@@ -46,4 +67,5 @@ export class AppComponent implements OnInit {
     })
 
   }
+
 }

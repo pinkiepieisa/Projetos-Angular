@@ -1,5 +1,5 @@
 <div class="users">
-    <mat-card class="users__card" *ngFor="let user of usersList">
+    <mat-card class="users__card" *ngFor="let user of usersList; let i = index" (click)="OnUserSelected()" >
         <!-- Variável mutável chamada user que vai percorrer a variável usersList que é um array que guarda os dados dos usuários  -->
         <mat-card-header>
             <mat-card-title> {{ user.name }} </mat-card-title>
