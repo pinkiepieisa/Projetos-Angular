@@ -1,3 +1,3 @@
 import { IGenres } from "../interfaces/genre.interface";
 
-export type GenresListTesponse = IGenres[];
+export type GenresListResponse = IGenres[];

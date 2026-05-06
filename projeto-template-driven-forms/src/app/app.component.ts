@@ -3,7 +3,7 @@ import { UsersService } from './services/users.service';
 import { GenresService } from './services/genres.service';
 import { BrazilianStatesService } from './services/brazilian-states.service';
 import { UsersListResponse } from './types/users-list-response';
-import { GenresListTesponse } from './types/genres-list-response';
+import { GenresListResponse } from './types/genres-list-response';
 import { StatesListResponse } from './types/brazilian-states-list-response';
 import { IUser } from './interfaces/user/user.interface';
 
@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
   // Guarda o index do usuário
 
   usersList: UsersListResponse = [];
-  genresList: GenresListTesponse = [];
+  genresList: GenresListResponse = [];
   statesList: StatesListResponse = [];
 
   constructor(
