@@ -26,13 +26,16 @@
                         name="usuario"
                         matInput
                         [(ngModel)]="userSelected.username"
+                        [ngModelOptions]="{ updateOn: 'blur' }"
                         #usernameControl="ngModel"
+                        [appCredentialsValidator]="'username'"
                         required
                     />
                     <!-- #usernameControl é um template variable que acessa as prorpiedades do elemento -->
 
                     <mat-hint> O <strong> USUÁRIO </strong> será utilizado para o login. </mat-hint>
                     <mat-error *ngIf="usernameControl.hasError('required')"> O <strong> USUÁRIO </strong> é obrigatório! </mat-error>
+                    <mat-error *ngIf="usernameControl.hasError('invalidUsername') && !usernameControl.hasError('required')"> Este <strong> USUÁRIO </strong> já está sendo utilizado! </mat-error>
 
                 </mat-form-field>
 
@@ -44,14 +47,16 @@
                         name="email"
                         matInput
                         [(ngModel)]="userSelected.email"
+                        [ngModelOptions]="{ updateOn: 'blur' }"
                         #emailControl="ngModel"
+                        [appCredentialsValidator]="'email'"
                         appEmailPatternValidator
                         required
                     />
 
                     <mat-error *ngIf="emailControl.hasError('required')"> O <strong> E-MAIL </strong> é obrigatório! </mat-error>
-
                     <mat-error *ngIf="emailControl.hasError('invalidEmailPattern') && !emailControl.hasError('required')"> O <strong> E-MAIL </strong> é inválido! </mat-error>
+                    <mat-error *ngIf="emailControl.hasError('invalidEmail') && !emailControl.hasError('required')"> Este <strong> E-MAIL </strong> já está sendo utilizado! </mat-error>
 
                 </mat-form-field>
 

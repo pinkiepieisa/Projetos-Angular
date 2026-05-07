@@ -22,5 +22,4 @@ export class EmailPatternValidatorDirective implements Validator {
     return isValid ? null : { 'invalidEmailPattern': true };
   }
   
-
 }
