@@ -36,9 +36,25 @@
 
                 </mat-form-field>
 
-                <div class="user-form__item user-form__item-50">
-                    <input style="width: 100%;"/>
-                </div>
+                <mat-form-field class="user-form__item user-form__item-50">
+
+                    <mat-label> E-mail:</mat-label>
+                    <input 
+                        type="text"
+                        name="email"
+                        matInput
+                        [(ngModel)]="userSelected.email"
+                        #emailControl="ngModel"
+                        appEmailPatternValidator
+                        required
+                    />
+
+                    <mat-error *ngIf="emailControl.hasError('required')"> O <strong> E-MAIL </strong> é obrigatório! </mat-error>
+
+                    <mat-error *ngIf="emailControl.hasError('invalidEmailPattern') && !emailControl.hasError('required')"> O <strong> E-MAIL </strong> é inválido! </mat-error>
+
+                </mat-form-field>
+
             </div>
         </form>
     </mat-card-content>
