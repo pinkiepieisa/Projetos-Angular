@@ -12,15 +12,29 @@
                         [(ngModel)]="userSelected.name" 
                         required 
                     />
-                    <mat-error> O <strong> NOME </strong> é obrigatório </mat-error>
+                    <mat-error> O <strong> NOME </strong> é obrigatório! </mat-error>
 
                 </mat-form-field>
             </div>
 
             <div class="user-form__row">
-                <div class="user-form__item user-form__item-50">
-                    <input style="width: 100%;"/>
-                </div>
+                <mat-form-field class="user-form__item user-form__item-50">
+
+                    <mat-label> Usuário:</mat-label>
+                    <input 
+                        type="text"
+                        name="usuario"
+                        matInput
+                        [(ngModel)]="userSelected.username"
+                        #usernameControl="ngModel"
+                        required
+                    />
+                    <!-- #usernameControl é um template variable que acessa as prorpiedades do elemento -->
+
+                    <mat-hint> O <strong> USUÁRIO </strong> será utilizado para o login. </mat-hint>
+                    <mat-error *ngIf="usernameControl.hasError('required')"> O <strong> USUÁRIO </strong> é obrigatório! </mat-error>
+
+                </mat-form-field>
 
                 <div class="user-form__item user-form__item-50">
                     <input style="width: 100%;"/>
