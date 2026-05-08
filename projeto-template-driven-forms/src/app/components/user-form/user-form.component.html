@@ -65,6 +65,7 @@
                 <mat-form-field class="user-form__item user-form__item-50">
                     <mat-label> Senha: </mat-label>
                     <input 
+                        autocomplete="one-time-code"
                         type="password"
                         name="senha"
                         matInput
@@ -78,7 +79,11 @@
                     <mat-error *ngIf="passwordControl.hasError('invalidPasswordStrength') && !passwordControl.hasError('required')"> 
                         Digite uma senhas mais <strong> FORTE </strong> !
                     </mat-error>
-                    <mat-progress-bar [value]="passwordStrenghtValue"></mat-progress-bar>
+                    <mat-progress-bar [value]="passwordStrenghtValue" [ngClass]="{
+                        'weak-password': passwordStrenghtValue === 0 || passwordStrenghtValue === 20,
+                        'medium-password': passwordStrenghtValue === 60,
+                        'strong-password': passwordStrenghtValue === 100
+                    }"></mat-progress-bar>
                 </mat-form-field>
             </div>
         </form>

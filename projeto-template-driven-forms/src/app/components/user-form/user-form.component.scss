@@ -18,4 +18,24 @@
     &__item-100 {
         width: 100%;
     }
+
+    
+}
+
+.weak-password {
+    ::ng-deep &.mat-mdc-progress-bar.mat-primary {
+        --mdc-linear-progress-active-indicator-color: red !important;
+    }
+}
+
+.medium-password {
+    ::ng-deep &.mat-mdc-progress-bar.mat-primary {
+        --mdc-linear-progress-active-indicator-color: yellow !important;
+    }
+}
+
+.strong-password {
+    ::ng-deep &.mat-mdc-progress-bar.mat-primary {
+        --mdc-linear-progress-active-indicator-color: rgb(104, 255, 45) !important;
+    }
 }
