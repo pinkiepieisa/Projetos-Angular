@@ -7,7 +7,7 @@ import { PasswordStrengthValidatorDirective } from './password-strength-validato
     declarations: [
       EmailPatternValidatorDirective,
       CredentialsValidatorDirective,
-      PasswordStrengthValidatorDirective
+      PasswordStrengthValidatorDirective,
     ],
     exports: [
       EmailPatternValidatorDirective,

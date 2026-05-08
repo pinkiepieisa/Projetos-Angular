@@ -69,6 +69,7 @@
                         name="senha"
                         matInput
                         [(ngModel)]="userSelected.password"
+                        (ngModelChange)="onPasswordChange($event)"
                         #passwordControl="ngModel"
                         appPasswordStrengthValidator
                         required
@@ -77,6 +78,7 @@
                     <mat-error *ngIf="passwordControl.hasError('invalidPasswordStrength') && !passwordControl.hasError('required')"> 
                         Digite uma senhas mais <strong> FORTE </strong> !
                     </mat-error>
+                    <mat-progress-bar [value]="passwordStrenghtValue"></mat-progress-bar>
                 </mat-form-field>
             </div>
         </form>
