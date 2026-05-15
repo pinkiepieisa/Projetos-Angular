@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
-import { BrowserModule } from "@angular/platform-browser";
 import { AngularMaterialModule } from "../angular-material.module";
 import { DirectiveModule } from "../directives/directives.module";
 import { PipesModule } from "../pipes/pipes.module";
@@ -13,8 +13,8 @@ import { UserFormComponent } from './user-form/user-form.component';
     UserFormComponent
   ],
     imports: [
+        CommonModule,
         FormsModule,
-        BrowserModule,
         AngularMaterialModule,
         DirectiveModule,
         PipesModule

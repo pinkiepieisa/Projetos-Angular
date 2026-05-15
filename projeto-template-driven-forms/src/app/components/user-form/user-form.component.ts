@@ -9,8 +9,11 @@ import { getPasswordStrengthValue } from 'src/app/utils/get-password-strength-va
   templateUrl: './user-form.component.html',
   styleUrls: ['./user-form.component.scss']
 })
-export class UserFormComponent implements OnChanges {
+export class UserFormComponent implements OnChanges, OnInit {
   passwordStrenghtValue = 0;
+
+  minDate: Date | null = null;
+  maxDate: Date | null = null;
 
   @Input() genresList: GenresListResponse = [];
   @Input() statesList: StatesListResponse = [];
@@ -20,13 +23,25 @@ export class UserFormComponent implements OnChanges {
     const USER_CHANGED = changes['userSelected'];
     // Guarda o usuário que foi selecionado (quando houver uma mudança)
 
-    if(USER_CHANGED) {
+    if (USER_CHANGED) {
       this.onPasswordChange(this.userSelected.password);
     }
   }
 
   onPasswordChange(password: string) {
     this.passwordStrenghtValue = getPasswordStrengthValue(password);
+  }
+
+  ngOnInit() {
+    this.setMinAndMaxDate();
+  }
+
+  private setMinAndMaxDate() {
+    this.minDate = new Date(new Date().getFullYear() - 100, 0, 1);
+    // Ano atual menos 100 anos
+
+    this.maxDate = new Date();
+    // Pega a data atual, dia de hoje (Sempre é atualizado)
   }
 
 }

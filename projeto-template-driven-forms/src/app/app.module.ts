@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ComponentsModule } from './components/components.module';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,12 @@ import { ComponentsModule } from './components/components.module';
     ComponentsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: MAT_DATE_LOCALE, 
+      useValue: 'pt-BR'
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
