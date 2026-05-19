@@ -116,10 +116,12 @@
                         [min]="minDate"
                         [max]="maxDate"
                         name="dataNascimento"
-                        ngModel
+                        [ngModel]="dateValue" 
+                        (dateChange)="onDateChange($event)"
                         readonly
                         required
-                    />
+                    /> 
+                    <!-- [] -> Apenas envia os dados -->
                     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker>
                         <mat-datepicker-actions>
