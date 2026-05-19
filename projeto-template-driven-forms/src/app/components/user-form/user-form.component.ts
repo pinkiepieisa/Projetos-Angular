@@ -19,6 +19,8 @@ export class UserFormComponent implements OnChanges, OnInit {
   maxDate: Date | null = null;
   dateValue: Date | null = null;
 
+  displayedColumns: string[] = ['title', 'band', 'genre', 'favorite'];
+
   @Input() genresList: GenresListResponse = [];
   @Input() statesList: StatesListResponse = [];
   @Input() userSelected: IUser = {} as IUser;
