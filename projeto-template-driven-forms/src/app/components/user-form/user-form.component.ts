@@ -1,6 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
-import { every } from 'rxjs';
 import { IUser } from 'src/app/interfaces/user/user.interface';
 import { StatesListResponse } from 'src/app/types/brazilian-states-list-response';
 import { GenresListResponse } from 'src/app/types/genres-list-response';

@@ -132,6 +132,19 @@
                     <mat-hint>dd/mm/aaaa</mat-hint>
                     <mat-error> A <strong> DATA DE NASCIMENTO </strong> é obrigatória! </mat-error>
                 </mat-form-field>
+
+                <mat-form-field class="user-form__item user-form__item-50" >
+                    <mat-label> Estados </mat-label>
+                    <mat-select 
+                        name="estado" 
+                        [(ngModel)]="userSelected.state" 
+                        required
+                        >
+                        <mat-option> - </mat-option>
+                        <mat-option *ngFor="let state of statesList" [value]="state.id" > {{ state.id }} </mat-option>
+                    </mat-select>
+                    <mat-error> O <strong> ESTADO </strong> é obrigatório! </mat-error>
+                </mat-form-field>
             </div>
         </form>
     </mat-card-content>
