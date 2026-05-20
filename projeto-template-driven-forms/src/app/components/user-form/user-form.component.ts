@@ -21,6 +21,8 @@ export class UserFormComponent implements OnChanges, OnInit {
 
   displayedColumns: string[] = ['title', 'band', 'genre', 'favorite'];
 
+  filterGenresList: GenresListResponse = [];
+
   @Input() genresList: GenresListResponse = [];
   @Input() statesList: StatesListResponse = [];
   @Input() userSelected: IUser = {} as IUser;
@@ -37,7 +39,10 @@ export class UserFormComponent implements OnChanges, OnInit {
 
     if (USER_CHANGED) {
       this.onPasswordChange(this.userSelected.password);
+      
       this.setBirthDateToDatepicker(this.userSelected.birthDate);
+
+      this.filterGenresList = this.genresList;
     }
   }
 
@@ -48,11 +53,27 @@ export class UserFormComponent implements OnChanges, OnInit {
   }
 
   onDateChange($event: MatDatepickerInputEvent<any, any>) {
-    if(!$event.value) {
+    if (!$event.value) {
       return;
     }
 
     this.userSelected.birthDate = convertDateObjToPtBr($event.value);
+  }
+
+  displayFn(genreId: number) {
+    const genreFound = this.genresList.find(genre => genre.id === genreId);
+
+    return genreFound ? genreFound.description : '';
+  }
+
+  filterGenres(text: string) {
+    if(typeof text === 'number') return;
+
+    const searchTerm = text.toLowerCase();
+
+    this.filterGenresList = this.genresList.filter(
+      genre => genre.description.toLowerCase().includes(searchTerm)
+    );
   }
 
   // Métodos privados
