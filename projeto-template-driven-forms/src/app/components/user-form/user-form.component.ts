@@ -39,7 +39,7 @@ export class UserFormComponent implements OnChanges, OnInit {
 
     if (USER_CHANGED) {
       this.onPasswordChange(this.userSelected.password);
-      
+
       this.setBirthDateToDatepicker(this.userSelected.birthDate);
 
       this.filterGenresList = this.genresList;
@@ -67,13 +67,17 @@ export class UserFormComponent implements OnChanges, OnInit {
   }
 
   filterGenres(text: string) {
-    if(typeof text === 'number') return;
+    if (typeof text === 'number') return;
 
     const searchTerm = text.toLowerCase();
 
     this.filterGenresList = this.genresList.filter(
       genre => genre.description.toLowerCase().includes(searchTerm)
     );
+  }
+
+  isAnyCheckboxChecked(): boolean {
+    return this.userSelected.musics.some(music => music.isFavorite);
   }
 
   // Métodos privados
