@@ -1,4 +1,5 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { IUser } from 'src/app/interfaces/user/user.interface';
 import { StatesListResponse } from 'src/app/types/brazilian-states-list-response';
@@ -26,6 +27,12 @@ export class UserFormComponent implements OnChanges, OnInit {
   @Input() genresList: GenresListResponse = [];
   @Input() statesList: StatesListResponse = [];
   @Input() userSelected: IUser = {} as IUser;
+
+  @Output('onFormSubmit') onFormSubmitEmitt = new EventEmitter<void>();
+
+  constructor(
+    private readonly __el: ElementRef
+  ) {}
 
   // Life cicles
 
@@ -78,6 +85,32 @@ export class UserFormComponent implements OnChanges, OnInit {
 
   isAnyCheckboxChecked(): boolean {
     return this.userSelected.musics.some(music => music.isFavorite);
+  }
+
+  onFormSubmit(form: NgForm) {
+    console.log(form)
+
+    if(form.invalid) {
+      this.focusOnInvalidControl(form);
+
+      return;
+    }
+
+    console.log('VALIDO');
+    this.onFormSubmitEmitt.emit();
+  }
+
+  focusOnInvalidControl(form: NgForm) {
+    for(const control of Object.keys(form.controls)) {
+      console.log(control);
+      if(form.controls[control].invalid) {
+        const invalidControl = this.__el.nativeElement.querySelector(`[name=${control}]`);
+      
+        invalidControl.focus();
+
+        break;
+      }
+    }
   }
 
   // Métodos privados
