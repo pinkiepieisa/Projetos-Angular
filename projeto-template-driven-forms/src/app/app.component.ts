@@ -6,6 +6,8 @@ import { UsersListResponse } from './types/users-list-response';
 import { GenresListResponse } from './types/genres-list-response';
 import { StatesListResponse } from './types/brazilian-states-list-response';
 import { IUser } from './interfaces/user/user.interface';
+import { MatDialog } from '@angular/material/dialog';
+import { UserBeforeAndAfterDialogComponent } from './components/user-before-and-after-dialog/user-before-and-after-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +15,7 @@ import { IUser } from './interfaces/user/user.interface';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+
   userSelected: IUser = {} as IUser;
   // Guarda a cópia do objeto usuário original
   userSelectedIndex: number | undefined;
@@ -25,7 +28,8 @@ export class AppComponent implements OnInit {
   constructor(
     private readonly _usersService: UsersService,
     private readonly _genresService: GenresService,
-    private readonly _brazilianStatesService: BrazilianStatesService
+    private readonly _brazilianStatesService: BrazilianStatesService,
+    private readonly _matDialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -38,7 +42,7 @@ export class AppComponent implements OnInit {
     const userFound = this.usersList[userIndex];
     // Confere se tem um idex selecionado
 
-    if(userFound) {
+    if (userFound) {
       this.userSelectedIndex = userIndex;
       this.userSelected = structuredClone(userFound);
       // Valorizando as propriedades
@@ -47,6 +51,20 @@ export class AppComponent implements OnInit {
       // Lembrando que isso tudo ocorre em um evento de click (seleção de usuário)
     }
 
+  }
+
+  showRealUser() {
+    console.log(this.usersList);
+  }
+
+  onFormSubmit() {
+    this.openBeforeAndAfterDialog();
+  }
+
+  openBeforeAndAfterDialog() {
+    this._matDialog.open(UserBeforeAndAfterDialogComponent, {
+      minWidth: '70%',
+    });
   }
 
   private getStates() {
