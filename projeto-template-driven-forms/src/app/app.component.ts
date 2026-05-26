@@ -66,13 +66,23 @@ export class AppComponent implements OnInit {
   }
 
   openBeforeAndAfterDialog(originalUser: IUser, updatedUser: IUser) {
-    this._matDialog.open(UserBeforeAndAfterDialogComponent, {
+    const dialogRef = this._matDialog.open(UserBeforeAndAfterDialogComponent, {
       data: {
         originalUser,
         updatedUser,
       },
       minWidth: '70%',
     });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if(result) {
+        this.confirmUserUpdate();
+      }
+    });
+  }
+  
+  confirmUserUpdate() {
+    throw new Error('Method not implemented.');
   }
 
   private getStates() {
