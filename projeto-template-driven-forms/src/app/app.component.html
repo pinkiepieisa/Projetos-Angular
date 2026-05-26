@@ -1,0 +1,12 @@
+<div style="margin-bottom: 20px;">
+    <app-users-card-list [usersList]="usersList" (onUserSelected)="onUserSelected($event)"></app-users-card-list>
+    <!-- Passando os valores da lista por Input -->
+</div>
+
+<app-user-form
+    *ngIf="userSelectedIndex !== undefined"
+    [genresList]="genresList"
+    [statesList]="statesList"
+    [userSelected]="userSelected"
+    (onFormSubmit)="onFormSubmit()"
+></app-user-form>
