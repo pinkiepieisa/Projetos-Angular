@@ -13,7 +13,7 @@ export class CountriesService {
         private readonly _httpclient: HttpClient
     ) {}
 
-    getCountriess(): Observable<CountriesList> {
+    getCountries(): Observable<CountriesList> {
         return this._httpclient.get<ICountriesResponse>('https://countriesnow.space/api/v0.1/countries/positions').pipe(
             map((countriesResponse) => {
                 return countriesResponse.data;
