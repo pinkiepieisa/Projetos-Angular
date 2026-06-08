@@ -1,6 +1,8 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { map } from "rxjs";
+import { map, Observable } from "rxjs";
+import { IStatesResponse } from "../interfaces/states-response/states-response.interface";
+import { StatesList } from "../types/states-list";
 
 @Injectable({
     providedIn: 'root',
@@ -13,8 +15,8 @@ export class StatesService {
     ) {} 
     // Para poder fazer a injeção de dependência
 
-    getStates(countryName: string): any {
-        return this._http.post<any>(
+    getStates(countryName: string): Observable<StatesList> {
+        return this._http.post<IStatesResponse>(
             'https://countriesnow.space/api/v0.1/countries/states',
             {country: countryName}
         ).pipe(
