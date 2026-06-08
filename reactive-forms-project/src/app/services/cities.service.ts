@@ -1,6 +1,8 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { map } from "rxjs";
+import { map, Observable } from "rxjs";
+import { ICitiesResponse } from "../interfaces/cities-response/cities-response.interface";
+import { CitiesList } from "../types/cities-list";
 
 @Injectable({
     providedIn: 'root',
@@ -11,8 +13,8 @@ export class CitiesService {
         private readonly _http: HttpClient
     ) {}
 
-    getCities(countryName: string, cityName: string): any {
-        return this._http.post<any>(
+    getCities(countryName: string, cityName: string): Observable<CitiesList> {
+        return this._http.post<ICitiesResponse>(
             'https://countriesnow.space/api/v0.1/countries/state/cities',
             {
                 contry: countryName,
