@@ -6,12 +6,14 @@ import { BrowserModule } from "@angular/platform-browser";
 import { CommonModule } from "@angular/common";
 import { GeneralInformatiosComponent } from './general-informatios/general-informatios.component';
 import { UserInfoItemComponent } from './user-info-item/user-info-item.component';
+import { ContactInformationsComponent } from './contact-informations/contact-informations.component';
 
 @NgModule({
     declarations: [
         UsersListComponent,
         GeneralInformatiosComponent,
         UserInfoItemComponent,
+        ContactInformationsComponent,
     ],
     imports: [
         AngularMaterialModule,
@@ -22,6 +24,7 @@ import { UserInfoItemComponent } from './user-info-item/user-info-item.component
     exports: [
         UsersListComponent,
         GeneralInformatiosComponent,
+        ContactInformationsComponent,
     ],
 })
 
