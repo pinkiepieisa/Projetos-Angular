@@ -7,6 +7,12 @@ import { AngularMaterialModule } from './angular-material/angular-material.modul
 import { ComponentsModule } from './components/component.module';
 import { HttpClientModule } from '@angular/common/http';
 
+import localePt from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
+
+registerLocaleData(localePt, 'pt-BR');
+// Importação do model pt br para currency pipe
+
 @NgModule({
   declarations: [
     AppComponent,
