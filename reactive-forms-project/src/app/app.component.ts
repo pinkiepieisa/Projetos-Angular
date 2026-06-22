@@ -13,7 +13,7 @@ import { take } from 'rxjs';
 })
 export class AppComponent implements OnInit {
   usersList: UsersListResponse = [];
-  currentIndex: number = 1;
+  currentIndex: number = 2;
 
   constructor(
     private readonly _countriesService: CountriesService,
