@@ -8,6 +8,7 @@ import { GeneralInformatiosComponent } from './general-informatios/general-infor
 import { UserInfoItemComponent } from './user-info-item/user-info-item.component';
 import { ContactInformationsComponent } from './contact-informations/contact-informations.component';
 import { PhoneListComponent } from './contact-informations/components/phone-list/phone-list.component';
+import { AddressListComponent } from './address-list/address-list.component';
 
 @NgModule({
     declarations: [
@@ -16,6 +17,7 @@ import { PhoneListComponent } from './contact-informations/components/phone-list
         UserInfoItemComponent,
         ContactInformationsComponent,
         PhoneListComponent,
+        AddressListComponent,
     ],
     imports: [
         AngularMaterialModule,
