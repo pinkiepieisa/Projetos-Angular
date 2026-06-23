@@ -1,0 +1,18 @@
+<div class="p-4 bg-green-300">
+    <div class="p-4 bg-yellow-300 grid lg:grid-cols-3 gap-4">
+        <app-user-info-item title="Nome" [text]="user?.name"></app-user-info-item>
+        <!-- Trabalha/Funciona como uma div -->
+        <app-user-info-item title="Email" [text]="user?.email"></app-user-info-item>
+    </div>
+
+    <div class="p-4 bg-blue-300 grid lg:grid-cols-3 gap-4">
+        <app-user-info-item title="País" [text]="user?.country"></app-user-info-item>
+        <app-user-info-item title="Estado" [text]="user?.state"></app-user-info-item>
+    </div>
+
+    <div class="p-4 bg-pink-300 grid lg:grid-cols-3 gap-4">
+        <app-user-info-item title="Estado Civil" [text]="user?.maritalStatus | maritalStatus"></app-user-info-item>
+        <app-user-info-item title="Renda Mensal" [text]="user?.monthlyIncome | currency : 'BRL' : 'symbol' : '1.2-2' : 'pt-BR'"></app-user-info-item>
+        <app-user-info-item title="Data de nascimento" [text]="user?.birthDate"></app-user-info-item>
+    </div>
+</div>    
