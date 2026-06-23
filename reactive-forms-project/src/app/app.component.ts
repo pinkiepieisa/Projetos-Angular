@@ -5,6 +5,7 @@ import { CitiesService } from './services/cities.service';
 import { UsersService } from './services/users.service';
 import { UsersListResponse } from './types/users-list';
 import { take } from 'rxjs';
+import { IUser } from './interfaces/user/user.interface';
 
 @Component({
   selector: 'app-root',
@@ -12,15 +13,18 @@ import { take } from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  userSelectedIndex: number | undefined;
+  userSelected: IUser = {} as IUser;
+
   usersList: UsersListResponse = [];
-  currentIndex: number = 2;
+  currentIndex: number = 0;
 
   constructor(
     private readonly _countriesService: CountriesService,
     private readonly _statesService: StatesService,
     private readonly _citiesService: CitiesService,
     private readonly _usersService: UsersService,
-  ) {}
+  ) { }
   // Para realizar a injeção de dependência
 
   // Carrega a cada reinício da página 
@@ -44,5 +48,15 @@ export class AppComponent implements OnInit {
     this._usersService.getUsers().pipe(take(1)).subscribe((usersListResponse) => this.usersList = usersListResponse);
     //Passa para a lista os usuários dentro do array
     // pipe(take(1)) -> Para ele não ficar ouvindo o observable e ouvir apenas 1 vez
+  }
+
+  onUserSelected(userIndex: number) {
+    const userFound = this.usersList[userIndex];
+
+    if(userFound) {
+      this.userSelectedIndex = userIndex;
+      this.userSelected = structuredClone(userFound);
+      // Guarda o clone(cópia das informações) do usuário selecionado
+    }
   }
 }
