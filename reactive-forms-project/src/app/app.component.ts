@@ -18,6 +18,7 @@ export class AppComponent implements OnInit {
 
   usersList: UsersListResponse = [];
   currentIndex: number = 0;
+  isInEditMode: boolean = false;
 
   constructor(
     private readonly _countriesService: CountriesService,
@@ -53,10 +54,18 @@ export class AppComponent implements OnInit {
   onUserSelected(userIndex: number) {
     const userFound = this.usersList[userIndex];
 
-    if(userFound) {
+    if (userFound) {
       this.userSelectedIndex = userIndex;
       this.userSelected = structuredClone(userFound);
       // Guarda o clone(cópia das informações) do usuário selecionado
     }
+  }
+
+  onCancelButton() {
+    this.isInEditMode = false;
+  }
+
+  onEditButton() {
+    this.isInEditMode = true;
   }
 }

@@ -1,0 +1,14 @@
+<div 
+class="p-4 bg-yellow-200 flex justify-end gap-4" >
+    <button 
+    class="rounded-md px-3 py-2 text-lg font-medium leading-5 text-white bg-purple-300 hover:bg-purple-200" 
+    (click)="onEditButton()"
+    *ngIf="!isInEditMode">Editar</button>
+    <button 
+    class="rounded-md px-3 py-2 text-lg font-medium leading-5 text-white bg-red-300 hover:bg-red-200"
+    (click)="onCancelButton()"
+    *ngIf="isInEditMode">Cancelar</button>
+    <button 
+    class="rounded-md px-3 py-2 text-lg font-medium leading-5 text-white bg-green-300 hover:bg-green-200" 
+    *ngIf="isInEditMode">Salvar</button>
+</div>
