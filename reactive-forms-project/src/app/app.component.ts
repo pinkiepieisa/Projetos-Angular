@@ -17,7 +17,6 @@ export class AppComponent implements OnInit {
   userSelected: IUser = {} as IUser;
 
   usersList: UsersListResponse = [];
-  currentIndex: number = 0;
   isInEditMode: boolean = false;
 
   constructor(

@@ -1,30 +1,24 @@
 <div class="p-4 max-w-screen-xl mx-auto">
     <mat-card>
         <mat-card-content>
-           <app-users-list [usersList]="usersList" (onUserSelected)="onUserSelected($event)"></app-users-list>
+           <app-users-list 
+                [usersList]="usersList" 
+                (onUserSelected)="onUserSelected($event)">
+           </app-users-list>
 
             <app-buttons-container
-            [isInEditMode]="isInEditMode"
-            (onEditButton)="onEditButton()"
-            (onCancelButton)="onCancelButton()"
-            *ngIf="userSelectedIndex !== undefined">
+                [isInEditMode]="isInEditMode"
+                (onEditButton)="onEditButton()"
+                (onCancelButton)="onCancelButton()"
+                *ngIf="userSelectedIndex !== undefined">
             </app-buttons-container>
 
-           <mat-tab-group [(selectedIndex)]="currentIndex" *ngIf="userSelectedIndex !== undefined">
+            <app-user-informations-container 
+                *ngIf="userSelectedIndex !== undefined"
+                [isInEditMode]="isInEditMode"
+                [userSelected]="userSelected">
+            </app-user-informations-container>
 
-                <mat-tab label="Geral">
-                    <app-general-informatios [user]="userSelected"></app-general-informatios>
-                </mat-tab>
-
-                <mat-tab label="Contato">
-                    <app-contact-informations [user]="userSelected"></app-contact-informations>
-                </mat-tab>
-
-                <mat-tab label="Dependente">
-                    <app-dependents-list [dependentList]="userSelected.dependentsList"></app-dependents-list>
-                </mat-tab>
-
-           </mat-tab-group>
         </mat-card-content>
     </mat-card>
 </div>
