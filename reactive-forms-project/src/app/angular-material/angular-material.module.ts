@@ -5,6 +5,10 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { provideNativeDateAdapter } from '@angular/material/core';
+
+
 
 @NgModule({
     imports: [
@@ -14,6 +18,7 @@ import { MatRadioModule } from '@angular/material/radio';
         MatFormFieldModule,
         MatAutocompleteModule,
         MatRadioModule,
+        MatDatepickerModule,
     ],
     exports: [
         MatCardModule,
@@ -22,6 +27,10 @@ import { MatRadioModule } from '@angular/material/radio';
         MatFormFieldModule,
         MatAutocompleteModule,
         MatRadioModule,
+        MatDatepickerModule,
+    ],
+    providers: [
+        provideNativeDateAdapter()
     ],
 })
 

@@ -13,6 +13,7 @@ import { DependentsListComponent } from './dependents-list/dependents-list.compo
 import { ButtonsContainerComponent } from './buttons-container/buttons-container.component';
 import { UserInformationsContainerComponent } from './user-informations-container/user-informations-container.component';
 import { GeneralInformationsEditComponent } from './general-informations-edit/general-informations-edit.component';
+import { ContactInformationsEditComponent } from './contact-informations-edit/contact-informations-edit.component';
 
 @NgModule({
     declarations: [
@@ -26,6 +27,7 @@ import { GeneralInformationsEditComponent } from './general-informations-edit/ge
         ButtonsContainerComponent,
         UserInformationsContainerComponent,
         GeneralInformationsEditComponent,
+        ContactInformationsEditComponent,
     ],
     imports: [
         AngularMaterialModule,
