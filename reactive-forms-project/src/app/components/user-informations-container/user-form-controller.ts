@@ -11,6 +11,9 @@ export class UserFormController {
     userForm!: FormGroup;
     //! Para quando há a certeza de que a propriedade vai ser valorizada
 
+    private emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    // Parâmetros do email
+
     private _fb = inject(FormBuilder);
     //Injeção das funções do formBuilder diretamente no Controller
 
@@ -108,7 +111,7 @@ export class UserFormController {
                 email: ['', Validators.required],
                 country: ['', Validators.required],
                 state: ['', Validators.required],
-                maritalStatus: [null, Validators.required],
+                maritalStatus: [null, [Validators.required, Validators.pattern(this.emailPattern)]],
                 monthlyIncome: [null, Validators.required],
                 birthDate: [null, Validators.required],
             }),
