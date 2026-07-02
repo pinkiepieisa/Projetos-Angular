@@ -32,7 +32,7 @@ export class UserFormController {
     }
 
     get dependentsList(): FormArray {
-        return this.userForm.get('contactInformations.dependentsList') as FormArray;
+        return this.userForm.get('dependentsList') as FormArray;
     }
 
     fulfillUserForm(user: IUser) {
@@ -103,7 +103,7 @@ export class UserFormController {
 
     private createUserForm() {
         this.userForm = this._fb.group({
-            generalInformation: this._fb.group({
+            generalInformations: this._fb.group({
                 name: ['', Validators.required],
                 email: ['', Validators.required],
                 country: ['', Validators.required],
