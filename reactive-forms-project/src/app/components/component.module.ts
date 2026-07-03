@@ -19,6 +19,7 @@ import { AddressListEditComponent } from './contact-informations-edit/components
 import { DependentsListEditComponent } from './dependents-list-edit/dependents-list-edit.component';
 import { ReactiveFormsModule } from "@angular/forms";
 import { NgxMaskDirective, provideNgxMask } from "ngx-mask";
+import { MAT_DATE_LOCALE } from "@angular/material/core";
 
 @NgModule({
     declarations: [
@@ -54,7 +55,8 @@ import { NgxMaskDirective, provideNgxMask } from "ngx-mask";
         UserInformationsContainerComponent,
     ],
     providers: [
-        provideNgxMask()
+        provideNgxMask(),
+        { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }
     ]
 })
 
