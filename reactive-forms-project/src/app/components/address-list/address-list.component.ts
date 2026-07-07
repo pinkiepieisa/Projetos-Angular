@@ -31,8 +31,9 @@ export class AddressListComponent implements OnChanges {
       const addressFound = this.userAddressList?.find((userAddress) => userAddress.type === addressType);
 
       this.addressListToDisplay.push(this.returnAddressToDisplay(addressFound, addressType));
-    })
-  }
+    });
+  };
+
   returnAddressToDisplay(address: IAddress | undefined, addressType: number): IAddressToDisplay {
     if (!address) {
       return {
@@ -44,11 +45,11 @@ export class AddressListComponent implements OnChanges {
         state: '-',
         city: '-'
       };
-    }
+    };
 
     return {
       typeDescription: addressTypeDescriptionMap[addressType as AddressTypeEnum],
       ...address,
-    } // Devolve a tipagem da mesma estrutura do objeto do endereço não encontrado
-  }
-}
+    }; // Devolve a tipagem da mesma estrutura do objeto do endereço não encontrado
+  };
+};
