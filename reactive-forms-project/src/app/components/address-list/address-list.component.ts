@@ -4,6 +4,7 @@ import { AddressTypeEnum } from '../../enums/address-type.enum';
 import { IAddress } from '../../interfaces/user/address.interface';
 import { addressTypeDescriptionMap } from '../../utils/address-type-description-map';
 import { IAddressToDisplay } from '../../interfaces/address-to-display.interface';
+import { prepareAddressList } from '../../utils/prepare-address-list';
 
 @Component({
   selector: 'app-address-list',
@@ -27,29 +28,10 @@ export class AddressListComponent implements OnChanges {
   preparedAddressListToDisplay() {
     this.addressListToDisplay = [];
 
-    Object.keys(addressTypeDescriptionMap).map(Number).forEach((addressType: number) => {
-      const addressFound = this.userAddressList?.find((userAddress) => userAddress.type === addressType);
+    const originalAddressList = this.userAddressList && this.userAddressList.length > 0 ? this.userAddressList : [];
 
-      this.addressListToDisplay.push(this.returnAddressToDisplay(addressFound, addressType));
+    prepareAddressList(originalAddressList, true, (address) => {
+      this.addressListToDisplay.push(address);
     });
-  };
-
-  returnAddressToDisplay(address: IAddress | undefined, addressType: number): IAddressToDisplay {
-    if (!address) {
-      return {
-        typeDescription: addressTypeDescriptionMap[addressType as AddressTypeEnum],
-        type: addressType,
-        street: '-',
-        complement: '-',
-        country: '-',
-        state: '-',
-        city: '-'
-      };
-    };
-
-    return {
-      typeDescription: addressTypeDescriptionMap[addressType as AddressTypeEnum],
-      ...address,
-    }; // Devolve a tipagem da mesma estrutura do objeto do endereço não encontrado
-  };
-};
+  }
+}
